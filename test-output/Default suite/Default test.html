@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon May 27 23:43:27 IST 2024</td>
+<td>Started on:</td><td>Mon Jun 10 22:37:03 IST 2024</td>
 </tr>
-<tr><td>Total time:</td><td>37 seconds (37776 ms)</td>
+<tr><td>Total time:</td><td>47 seconds (47075 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,8 +67,8 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
@@ -76,8 +76,17 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='testRunner.TestNGTestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestNGTestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Create single free user", "Test all features of users"</td>
-<td></td>
-<td>36</td>
+<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebElement.getText()&quot; because &quot;this.username&quot; is null
+	at pageObjects.UserProfile.validateUserDetails(UserProfile.java:18)
+	at stepDefinitions.UsersStepDefinition.verify_the_user_details(UsersStepDefinition.java:53)
+	at ✽.verify the user details(file:///C:/Users/amarv/eclipse-workspace/BDDCucumberSeleniumJava/src/test/resources/features/users.feature:11)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1675999402", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1675999402'><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebElement.getText()&quot; because &quot;this.username&quot; is null
+	at pageObjects.UserProfile.validateUserDetails(UserProfile.java:18)
+	at stepDefinitions.UsersStepDefinition.verify_the_user_details(UsersStepDefinition.java:53)
+	at ✽.verify the user details(file:///C:/Users/amarv/eclipse-workspace/BDDCucumberSeleniumJava/src/test/resources/features/users.feature:11)
+</pre></div></td>
+<td>45</td>
 <td>testRunner.TestNGTestRunner@7ef82753</td></tr>
 </table><p>
 </body>

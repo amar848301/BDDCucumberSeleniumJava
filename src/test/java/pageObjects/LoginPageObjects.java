@@ -27,10 +27,11 @@ public class LoginPageObjects extends CommonFunction {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void getLogin() throws InterruptedException, IOException {
+	public void getLogin(String userName, String passWord) throws InterruptedException, IOException {
+		driver.navigate().to(Base.getData().getProperty("url"));
 		clickElement(loginBtn);
-		sendTextToElement(username, Base.getData().getProperty("adminusername"));
-		sendTextToElement(password, Base.getData().getProperty("adminpassword"));
+		sendTextToElement(username, userName);
+		sendTextToElement(password, passWord);
 		clickElement(submitBtn);
 	}
 }

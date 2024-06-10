@@ -13,7 +13,8 @@ import util.DateTimePattern;
 public class UsersPageObject extends CommonFunction {
 
 	WebDriver driver = Base.driver;
-	public String datetime = DateTimePattern.getDateTime();
+	public static String datetime = DateTimePattern.getDateTime();
+	public static String customizeEmail;
 
 	@FindBy(xpath = "//select[@name='on_behalf']")
 	WebElement onbehalf;
@@ -42,7 +43,9 @@ public class UsersPageObject extends CommonFunction {
 
 	public void createUser(String onBehalf, String firstName, String lastName, String gender, String dob, String email,
 			String password) {
-
+		
+		customizeEmail = datetime + email;
+		
 		Select behalf = new Select(onbehalf);
 		behalf.selectByVisibleText(onBehalf + " ");
 		sendTextToElement(firstname, datetime + firstName);
@@ -51,7 +54,7 @@ public class UsersPageObject extends CommonFunction {
 		gen.selectByVisibleText(gender);
 		sendTextToElement(dateofbirth, dob);
 		clickElement(dateofbirth);
-		sendTextToElement(emailaddress, datetime + email);
+		sendTextToElement(emailaddress, customizeEmail);
 		sendTextToElement(passwords, password);
 		sendTextToElement(cnfpassword, password);
 		clickElement(termscheckbox);

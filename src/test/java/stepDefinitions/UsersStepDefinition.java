@@ -8,9 +8,18 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObjects.AdminDashboardPageObject;
+import pageObjects.UserProfile;
 import pageObjects.UsersPageObject;
 
 public class UsersStepDefinition {
+	
+	public static String onBehalf;
+	public static String firstName;
+	public static String lastName;
+	public static String gender;
+	public static String dob;
+	public static String email;
+	public static String password;
 
 	public UsersPageObject users;
 
@@ -19,13 +28,13 @@ public class UsersStepDefinition {
 		List<Map<String, String>> userDetails = dataTable.asMaps(String.class, String.class);
 
 		for (Map<String, String> userDetail : userDetails) {
-			String onBehalf = userDetail.get("onBehalf");
-			String firstName = userDetail.get("firstName");
-			String lastName = userDetail.get("lastName");
-			String gender = userDetail.get("gender");
-			String dob = userDetail.get("dob");
-			String email = userDetail.get("email");
-			String password = userDetail.get("password");
+			onBehalf = userDetail.get("onBehalf");
+			firstName = userDetail.get("firstName");
+			lastName = userDetail.get("lastName");
+			gender = userDetail.get("gender");
+			dob = userDetail.get("dob");
+			email = userDetail.get("email");
+			password = userDetail.get("password");
 
 			users = new UsersPageObject();
 			users.createUser(onBehalf, firstName, lastName, gender, dob, email, password);
@@ -33,14 +42,14 @@ public class UsersStepDefinition {
 	}
 
 	@When("approve user from admin panel")
-	public void approve_user_from_admin_panel() {
+	public void approve_user_from_admin_panel() throws InterruptedException {
 		AdminDashboardPageObject dashboard = new AdminDashboardPageObject();
 		dashboard.approveMember();
 	}
 
 	@Then("verify the user details")
 	public void verify_the_user_details() {
-		System.out.println("Test");
+		UserProfile userprofile = new UserProfile();
+		userprofile.validateUserDetails();
 	}
-
 }
