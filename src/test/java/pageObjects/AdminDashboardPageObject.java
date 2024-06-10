@@ -26,6 +26,12 @@ public class AdminDashboardPageObject extends CommonFunction {
 	WebElement optionBtn;
 	@FindBy(xpath = "(//a[text()='Approve']) [1]")
 	WebElement approveBtn;
+	@FindBy(xpath = "//form[@method='POST'] //*[contains(text(), 'Approve')]")
+	WebElement approvebutton;
+	@FindBy(xpath = "//span[text()='staff']")
+	WebElement adminprofile;
+	@FindBy(xpath = "//span[text()='Logout']")
+	WebElement logoutBtn;
 
 	public AdminDashboardPageObject() {
 		PageFactory.initElements(driver, this);
@@ -38,10 +44,13 @@ public class AdminDashboardPageObject extends CommonFunction {
 	 * System.out.println(memberName.get(i).getText()); } }
 	 */
 
-	public void approveMember() {
+	public void approveMember() throws InterruptedException {
 		clickElement(membersMenu);
 		clickElement(freeMembersSubMenu);
 		clickElement(optionBtn);
 		clickElement(approveBtn);
+		clickElement(approvebutton);
+		clickElement(adminprofile);
+		clickElement(logoutBtn);
 	}
 }
